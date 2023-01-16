@@ -26,7 +26,7 @@ function Main({ font }) {
     useEffect(() => {
         let selected_filter = sessionStorage.getItem("selected_filter")
         let infoPage = JSON.parse(sessionStorage.getItem(selected_filter))
-        let page = Number(infoPage.page);
+        let page = infoPage.page !== null ? Number(infoPage.page) : 1
         let limit = Number(infoPage.limit);
         getProducts(page, limit, selected_filter)
 
@@ -107,9 +107,9 @@ function Main({ font }) {
 
     function nextPage(filter, direction) {
         let infoPage = JSON.parse(sessionStorage.getItem(filter))
-        let page = infoPage.page ? Number(infoPage.page) : ""
-        let limit = infoPage.limit ? Number(infoPage.limit) : ""
-        let number_pages = infoPage.number_pages ? Number(infoPage.number_pages) : ""
+        let page = infoPage.page !== null ? Number(infoPage.page) : 1
+        let limit = Number(infoPage.limit)
+        let number_pages = Number(infoPage.number_pages)
         if (direction === "next" && page + 1 <= number_pages) {
             getProducts(page + 1, limit, filter)
         } else if (direction === "previous" && page - 1 !== 0) {
