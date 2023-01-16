@@ -1,0 +1,92 @@
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 3%;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.top_sellers {
+    width: 40%;
+}
+
+.all_products {
+    width: 60%;
+}
+
+.next_page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.next_page h2 {
+    color: var(--first-color);
+    margin-bottom: 1rem;
+}
+
+.arrow_wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.arrow {
+    width: 1rem;
+    margin: 0 0.5rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.arrow img {
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+    object-fit: contain;
+}
+
+.cards_wrapper {
+    width: 100%;
+    background-color: #F3F5F9;
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.table {
+    width: 100%;
+    border-spacing: 1.25rem;
+    border-radius: 0.5rem;
+    background-color: #F3F5F9;
+}
+
+.table thead {
+    width: 100%;
+}
+
+.table thead th {
+    color: gray;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.table tbody {
+    width: 100%;
+}
+
+.footer {
+    width: 100%;
+    text-align: right;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: gray;
+    margin-top: 0.5rem;
+}

@@ -1,0 +1,58 @@
+.profile_header {
+    background-color: var(--first-color);
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.1);
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: white;
+}
+
+.logo span {
+    color: var(--fourth-color);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.picture {
+    width: 100%;
+    max-width: 2.9375rem;
+    position: relative;
+}
+
+.picture img {
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.chevron {
+    width: 100%;
+    max-width: 1rem;
+    margin-left: 0.5rem;
+    position: relative;
+}
+
+.chevron img {
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+    object-fit: contain;
+}

@@ -1,0 +1,102 @@
+.single_cardY {
+    width: calc(50% - 0.6875rem);
+}
+
+.single_cardY .image_product {
+    width: 100%;
+    max-width: 14rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.single_cardY .image_product img {
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+    object-fit: contain;
+}
+
+.single_cardY .info_product p {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--third-color);
+}
+
+.single_cardY .info_product p span {
+    color: gray;
+}
+
+.single_cardX:first-of-type {
+    width: 48%;
+    border-top: 0.0625rem solid rgba(0, 0, 0, 0.1);
+}
+
+.single_cardX {
+    width: 16%;
+    border-top: 0.0625rem solid rgba(0, 0, 0, 0.1);
+}
+
+.single_cardX:last-of-type {
+    width: 4%;
+    border-top: 0.0625rem solid rgba(0, 0, 0, 0.1);
+}
+
+.single_cardX>div {
+    display: flex;
+    align-items: center;
+    padding-top: 1.25rem;
+}
+
+.single_cardX .image_product {
+    width: 100%;
+    max-width: 5.3125rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.single_cardX .image_product img {
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+    object-fit: contain;
+}
+
+.single_cardX .info_product {
+    width: 100%;
+    padding-left: 1rem;
+}
+
+.single_cardX .info_product p {
+    color: var(--third-color);
+    font-weight: 600;
+    margin-bottom: 0.3125rem;
+    font-size: 0.875rem;
+}
+
+.single_cardX span {
+    color: gray;
+    font-size: 0.875rem;
+}
+
+.single_cardX .heart_icon {
+    width: 100%;
+    cursor: pointer;
+    max-width: 1.25rem;
+    position: relative;
+}
+
+.single_cardX .heart_icon img {
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+    object-fit: contain;
+}
