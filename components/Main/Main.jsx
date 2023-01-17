@@ -160,27 +160,29 @@ function Main({ font }) {
                             </button>
                         </div>
                     </div>
-                    <table className={styles.table}>
-                        <thead>
-                            <tr>
-                                <th>Identificação</th>
-                                <th>Preço</th>
-                                <th>Vendas</th>
-                                <th>Estoque</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                allProducts?.data?.map((product) => {
-                                    return <CardX key={product.id}
-                                        name={product.name} code={product.code}
-                                        price={product.price} sales={product.sales}
-                                        stock={product.stock} favorited={product?.favorited}
-                                    />
-                                })
-                            }
-                        </tbody>
-                    </table>
+                    <div className={styles.responsive_table}>
+                        <table className={styles.table}>
+                            <thead>
+                                <tr>
+                                    <th>Identificação</th>
+                                    <th>Preço</th>
+                                    <th>Vendas</th>
+                                    <th>Estoque</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    allProducts?.data?.map((product) => {
+                                        return <CardX key={product.id}
+                                            name={product.name} code={product.code}
+                                            price={product.price} sales={product.sales}
+                                            stock={product.stock} favorited={product?.favorited}
+                                        />
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                     <p className={styles.footer}>
                         Página {allProducts?.page} de {allProducts?.number_pages}
                     </p>

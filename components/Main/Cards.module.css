@@ -55,6 +55,7 @@
 
 .single_cardX .image_product {
     width: 100%;
+    min-width: 5.3125rem;
     max-width: 5.3125rem;
     background-color: white;
     border-radius: 0.5rem;
@@ -88,9 +89,8 @@
 }
 
 .single_cardX .heart_icon {
-    width: 100%;
     cursor: pointer;
-    max-width: 1.25rem;
+    width: 1.25rem;
     position: relative;
 }
 
@@ -99,4 +99,33 @@
     position: relative !important;
     height: unset !important;
     object-fit: contain;
+}
+
+@media screen and (max-width:1200px) {
+    .single_cardY .image_product {
+        width: 100%;
+        max-width: 35rem;
+        background-color: white;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .single_cardY .image_product img {
+        width: 100% !important;
+        position: relative !important;
+        height: unset !important;
+        object-fit: contain;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .single_cardY .info_product p {
+        align-items: center;
+        flex-direction: column;
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
 }

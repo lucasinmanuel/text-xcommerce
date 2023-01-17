@@ -59,6 +59,10 @@
     justify-content: center;
 }
 
+.responsive_table {
+    overflow-x: auto;
+}
+
 .table {
     width: 100%;
     border-spacing: 1.25rem;
@@ -89,4 +93,24 @@
     font-weight: 500;
     color: gray;
     margin-top: 0.5rem;
+}
+
+@media screen and (max-width:1200px) {
+    .container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem 3%;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+
+    .top_sellers {
+        width: 100%;
+    }
+
+    .all_products {
+        width: 100%;
+    }
 }

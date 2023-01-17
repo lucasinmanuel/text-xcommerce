@@ -48,3 +48,15 @@
     border: transparent;
     outline: none;
 }
+
+@media screen and (max-width:800px) {
+    .container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .container>h1 {
+        margin-bottom: 1rem;
+    }
+}
