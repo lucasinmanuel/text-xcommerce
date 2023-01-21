@@ -1,0 +1,27 @@
+.toasts {
+    width: 100%;
+    max-width: 15rem;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    background-color: white;
+    z-index: 110;
+}
+
+.toasts .title {
+    background-color: var(--second-color);
+    padding: 0.5rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title span {
+    background-color: red;
+    cursor: pointer;
+    padding: 0 0.2rem;
+}
+
+.toasts p {
+    padding: 0.5rem;
+}

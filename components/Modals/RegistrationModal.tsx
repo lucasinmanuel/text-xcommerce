@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { useMutation, useQueryClient } from "react-query"
 import { AppContext } from "../../ContextProvider"
 import { useForm, SubmitHandler } from "react-hook-form";
+import Toasts from "./Toasts";
 
 interface IFormInput {
     name: string,
@@ -19,26 +20,38 @@ interface ICreateProduct {
 }
 
 function RegistrationModal({ font }: { font: string }) {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm<IFormInput>();
-    const { visibleModal, setVisibleModal, pages } = useContext(AppContext)
+    const { visibleModal, setVisibleModal } = useContext(AppContext)
+    const [visibleToasts, setVisibleToasts] = useState(false)
+    const [toastsMessage, setToastsMessage] = useState("")
     const queryClient = useQueryClient()
     const createProduct = useMutation("createProduct", (product: ICreateProduct) =>
         fetch("/api/products", {
             method: "POST",
             body: JSON.stringify(product)
-        }).then(() => { queryClient.refetchQueries("all") }))
+        }).then(() => {
+            setVisibleToasts(true)
+            setToastsMessage("Produto anunciado!")
+            queryClient.refetchQueries("all")
+        }).catch((error) => {
+            setToastsMessage(error)
+        }))
 
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<IFormInput>();
     const onSubmit: SubmitHandler<IFormInput> = (data, event) => {
         event?.preventDefault()
         createProduct.mutate(data)
-        setVisibleModal(false)
         reset()
+
+        setTimeout(() => {
+            setVisibleToasts(false)
+        }, 1000 * 10)
     };
 
     return (
         <>
             {visibleModal &&
-                <div id="modal" className={font}>
+                <div className={font}>
+                    {visibleToasts && <Toasts close={setVisibleToasts} message={toastsMessage} />}
                     <div className={styles.modal_background}>
                         <style jsx global>{`
                         body,html{
