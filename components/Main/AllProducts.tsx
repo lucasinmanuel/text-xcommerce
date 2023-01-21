@@ -18,9 +18,9 @@ export default function AllProducts({ user }: { user: IUser }) {
         () => fetch(`/api/users/shoppingcart?id=${user?.id}&page=${pages.general.favorites}&limit=5`, { method: "GET" })
             .then(res => res.json()), { refetchOnWindowFocus: false, enabled: !!user })
 
-    const searchProducts: UseQueryResult<IProduct, unknown> = useQuery(["search", pages.general.search], () =>
+    const searchProducts: UseQueryResult<IProduct, unknown> = useQuery(["search", searchValue, pages.general.search], () =>
         fetch(`/api/products?filter=search&value=${searchValue}&page=${pages.general.search}&limit=5`, { method: "GET" })
-            .then(res => res.json()), { keepPreviousData: true })
+            .then(res => res.json()), { refetchOnWindowFocus: false, keepPreviousData: true })
 
     function nextPage(filter: string, direction: string) {
 

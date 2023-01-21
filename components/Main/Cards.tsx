@@ -33,7 +33,7 @@ interface ICardX {
 }
 
 export function CardX({ price, code, name, sales, stock, favorited }: ICardX) {
-    const { pages } = useContext(AppContext)
+    const { pages, searchValue } = useContext(AppContext)
 
     const queryClient = useQueryClient()
 
@@ -42,14 +42,14 @@ export function CardX({ price, code, name, sales, stock, favorited }: ICardX) {
         fetch("/api/users/shoppingcart", {
             method: "POST",
             body: JSON.stringify(newUser)
-        }).then(() => { queryClient.refetchQueries(["favorites"], { active: true }) }))
+        }).then(() => { queryClient.refetchQueries(["favorites", pages.general.favorites], { active: true }) }))
 
     const removeShoppingCart = useMutation("removeShoppingCart", ({
         userId, shoppingCartId }: { userId: number | string, shoppingCartId: number | string }) =>
         fetch(`/api/users/${userId}/shoppingcart/${shoppingCartId}`, {
             method: "DELETE",
         }).then(() => {
-            queryClient.refetchQueries(["favorites"], { active: true }), queryClient.refetchQueries("user")
+            queryClient.refetchQueries(["favorites", pages.general.favorites], { active: true }), queryClient.refetchQueries("user")
         }))
 
 
@@ -74,7 +74,7 @@ export function CardX({ price, code, name, sales, stock, favorited }: ICardX) {
                 return product.code === code
             })
         } else if (pages.general.filter === "search") {
-            const searchProducts: IProduct | undefined = queryClient.getQueryData(["search", pages.general.search])
+            const searchProducts: IProduct | undefined = queryClient.getQueryData(["search", searchValue, pages.general.search])
             filtered = searchProducts?.products.filter((product: { code: string }) => {
                 return product.code === code
             })

@@ -7,7 +7,7 @@ import { AppContext } from "../../../ContextProvider";
 
 function SearchBar() {
     const { setTitle, pages, setPages, setSelectedBtn, searchValue, setSearchValue } = useContext(AppContext)
-
+    const [value, setValue] = useState("")
     const queryClient = useQueryClient()
 
     function productSearch(clearResult: boolean) {
@@ -22,8 +22,8 @@ function SearchBar() {
                 },
                 top_sellers: pages.top_sellers
             })
-            queryClient.fetchQuery(["search", pages.general.search])
-            setTitle("Todos os produtos: " + searchValue)
+            setSearchValue(value)
+            setTitle("Todos os produtos: " + value)
         } else {
             setPages({
                 general: {
@@ -35,6 +35,7 @@ function SearchBar() {
                 top_sellers: pages.top_sellers
             })
             setTitle("Todos os produtos")
+            setSelectedBtn({ all: true, favorites: false })
         }
     }
     return (
@@ -46,11 +47,11 @@ function SearchBar() {
                         <Image alt="Ícone de pesquisa" src="/icons/search-icon.png" fill sizes="100%" />
                     </div>
                     <input onKeyDown={(event) => {
-                        if (event.key === "Backspace" && searchValue.length <= 1) {
+                        if (event.key === "Enter") { productSearch(false) }
+                        if (event.key === "Backspace" && value.length <= 1) {
                             productSearch(true)
                         }
-                        if (event.key === "Enter") { productSearch(false) }
-                    }} onChange={(search) => { setSearchValue(search.target.value) }} size={50} type="text" placeholder="Buscar por produtos" />
+                    }} onChange={(search) => { setValue(search.target.value) }} size={50} type="text" placeholder="Buscar por produtos" />
                 </div>
             </div>
         </div>
