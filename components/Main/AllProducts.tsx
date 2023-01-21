@@ -16,14 +16,13 @@ export default function AllProducts({ user }: { user: IUser }) {
 
     const favoritesProducts: UseQueryResult<IProduct, unknown> = useQuery(["favorites", pages.general.favorites],
         () => fetch(`/api/users/shoppingcart?id=${user?.id}&page=${pages.general.favorites}&limit=5`, { method: "GET" })
-            .then(res => res.json()), { refetchOnWindowFocus: false, enabled: !!user })
+            .then(res => res.json()), { refetchOnWindowFocus: false, keepPreviousData: true, enabled: !!user })
 
     const searchProducts: UseQueryResult<IProduct, unknown> = useQuery(["search", searchValue, pages.general.search], () =>
         fetch(`/api/products?filter=search&value=${searchValue}&page=${pages.general.search}&limit=5`, { method: "GET" })
             .then(res => res.json()), { refetchOnWindowFocus: false, keepPreviousData: true })
 
     function nextPage(filter: string, direction: string) {
-
         let lastPage = 2;
         let indexPage = 1;
         let nextPage;

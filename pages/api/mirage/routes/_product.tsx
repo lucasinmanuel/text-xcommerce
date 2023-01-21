@@ -29,10 +29,10 @@ export function getProducts(server: Server) {
           products: filtered
         }
       case "search":
-        let search = qp.value
+        let search = qp.value.toLowerCase()
         filtered = [];
         for (let i = 0; i < products.length; i++) {
-          if (products[i].name.toLowerCase().indexOf(search) > -1) {
+          if (products[i].name.toLowerCase().includes(search)) {
             filtered.push(products[i])
           }
         }

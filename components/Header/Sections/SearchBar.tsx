@@ -1,14 +1,12 @@
 import Image from "next/image";
 import styles from "./SearchBar.module.css"
 import { useState } from "react";
-import { useQuery, useQueryClient } from "react-query"
 import { useContext } from "react";
 import { AppContext } from "../../../ContextProvider";
 
 function SearchBar() {
-    const { setTitle, pages, setPages, setSelectedBtn, searchValue, setSearchValue } = useContext(AppContext)
+    const { setTitle, pages, setPages, setSelectedBtn, setSearchValue } = useContext(AppContext)
     const [value, setValue] = useState("")
-    const queryClient = useQueryClient()
 
     function productSearch(clearResult: boolean) {
         setSelectedBtn({ all: false, favorites: false })
@@ -48,7 +46,7 @@ function SearchBar() {
                     </div>
                     <input onKeyDown={(event) => {
                         if (event.key === "Enter") { productSearch(false) }
-                        if (event.key === "Backspace" && value.length <= 1) {
+                        if (event.key === "Backspace" && value.trim().length <= 1) {
                             productSearch(true)
                         }
                     }} onChange={(search) => { setValue(search.target.value) }} size={50} type="text" placeholder="Buscar por produtos" />
