@@ -1,4 +1,4 @@
-export default function listProducts(){
+export default function listProducts() {
     return (
         [
             {
@@ -40,7 +40,7 @@ export default function listProducts(){
             {
                 id: 5,
                 name: "Tech Pixel Plus",
-                code: "LMY133226",
+                code: "LYP033226",
                 sales: 10,
                 price: 2000,
                 stock: 2,
@@ -72,7 +72,34 @@ export default function listProducts(){
                 price: 1000,
                 stock: 2,
                 overview: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus culpa nihil enim beatae quis. A ullam veritatis, quo esse minima quos fugit blanditiis asperiores quae, consequatur voluptate inventore, odio maiores."
-            }
+            },
+            {
+                id: 9,
+                name: "Tech Pixel 1ª Geração",
+                code: "SDA13F26",
+                sales: 5,
+                price: 500,
+                stock: 22,
+                overview: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus culpa nihil enim beatae quis. A ullam veritatis, quo esse minima quos fugit blanditiis asperiores quae, consequatur voluptate inventore, odio maiores."
+            },
+            {
+                id: 10,
+                name: "Tech Pixel 2ª Geração",
+                code: "LMY133226",
+                sales: 10,
+                price: 700,
+                stock: 37,
+                overview: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus culpa nihil enim beatae quis. A ullam veritatis, quo esse minima quos fugit blanditiis asperiores quae, consequatur voluptate inventore, odio maiores."
+            },
+            {
+                id: 11,
+                name: "Tech Pixel 3ª Geração",
+                code: "LMY1AH626",
+                sales: 55,
+                price: 1000,
+                stock: 18,
+                overview: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus culpa nihil enim beatae quis. A ullam veritatis, quo esse minima quos fugit blanditiis asperiores quae, consequatur voluptate inventore, odio maiores."
+            },
         ]
     )
 }

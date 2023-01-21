@@ -1,11 +1,11 @@
-export default function listUsers(){
+export default function listUsers() {
     return (
         [
             {
                 id: 1,
                 shoppingCart: [
                     {
-                        id: '1',
+                        id: 1,
                         name: "Tech Pixel, Full Hd, não há câmera melhor no mercado!",
                         code: "HSY273284",
                         sales: 10,
@@ -16,7 +16,7 @@ export default function listUsers(){
                 ],
                 name: "Lucas Emanuel Santana Dos Santos",
                 nickname: "lucasinmanuel",
-                email: "lucasemanuel2077@gmail.com",
+                email: "l@gmail",
                 password: "123",
             },
             {

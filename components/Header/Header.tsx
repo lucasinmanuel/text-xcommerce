@@ -3,7 +3,7 @@ import Image from "next/image";
 import SearchBar from "./Sections/SearchBar";
 import ProductManager from "./Sections/ProductManager";
 
-function Header({ font }) {
+function Header({ font }: { font: string }) {
     return (
         <header className={font}>
             <div className={styles.profile_header}>

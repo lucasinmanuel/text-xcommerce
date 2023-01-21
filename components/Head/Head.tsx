@@ -1,6 +1,6 @@
 import NextHead from "next/head";
 
-function Head({ title }) {
+function Head({ title }: { title: string }) {
     return (
         <NextHead>
             <title>{title}</title>
